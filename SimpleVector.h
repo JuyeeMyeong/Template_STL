@@ -27,4 +27,8 @@ public:
     void pop_back();
     // 내부 데이터 정렬 
     void sortData();
+
+    void print() const;
 };
+
+#include "SimpleVector.tpp"

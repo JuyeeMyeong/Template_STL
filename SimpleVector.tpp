@@ -2,7 +2,7 @@
 
 // 생성자: 기본으로 크기 10인 배열, size에 해당되는 크기의 배열 생성 
 template <typename T>
-SimpleVector<T>::SimpleVector(int size = 10)
+SimpleVector<T>::SimpleVector(int size)
     : currentSize(0), currentCapacity(size)
 {
     data = new T[currentCapacity]; 
@@ -93,4 +93,14 @@ void SimpleVector<T>::resize(int newCapacity)
     delete[] data; // 메모리 해제
     data = copiedData;
     currentCapacity = newCapacity;
+}
+
+template <typename T>
+void SimpleVector<T>::print() const
+{
+    for (int i = 0; i < currentSize; ++i)
+    {
+        std::cout << data[i] << " ";
+    }
+    std::cout << std::endl;
 }
