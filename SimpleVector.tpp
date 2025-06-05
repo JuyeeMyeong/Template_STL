@@ -84,15 +84,22 @@ void SimpleVector<T>::resize(int newCapacity)
         return;
     }
 
-    T* copiedData = new T[newCapacity];
-
-    for(int i = 0; i < currentSize; ++i)
+    try
     {
-        copiedData[i] = data[i]; // 데이터 값 복사
+        T* copiedData = new T[newCapacity];
+
+        for(int i = 0; i < currentSize; ++i)
+        {
+            copiedData[i] = data[i]; // 데이터 값 복사
+        }
+        delete[] data; // 메모리 해제
+        data = copiedData;
+        currentCapacity = newCapacity;
     }
-    delete[] data; // 메모리 해제
-    data = copiedData;
-    currentCapacity = newCapacity;
+    catch(const std::bad_alloc& e)
+    {
+        std::cerr << "Bad Memory Allocation" << e.what() << '\n';
+    }
 }
 
 template <typename T>
