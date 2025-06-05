@@ -1,6 +1,6 @@
 #include "Simplevector.h"
 
-// 생성자: 기본으로 크기 10인 배열, size에 해당되는 크기의 배열 생성성
+// 생성자: 기본으로 크기 10인 배열, size에 해당되는 크기의 배열 생성 
 template <typename T>
 SimpleVector<T>::SimpleVector(int size = 10)
     : currentSize(0), currentCapacity(size)
@@ -27,14 +27,14 @@ SimpleVector<T>::~SimpleVector()
     delete[] data;
 }
 
-// 현재 원소의 개수 반환환
+// 현재 원소의 개수 반환 
 template <typename T>
 int SimpleVector<T>::size() const
 {
     return currentSize;
 }
 
-// 현재 내부 배열의 크기 반환환
+// 현재 내부 배열의 크기 반환 
 template <typename T>
 int SimpleVector<T>::capacity() const
 {
@@ -46,7 +46,7 @@ void SimpleVector<T>::push_back(const T& value)
 {
     if (currentSize == currentCapacity)
     {
-        if (currentCapacity == 0) // 혹시 모르니 용량이 0일 때는 기본 용량 (10)으로 설정정
+        if (currentCapacity == 0) // 혹시 모르니 용량이 0일 때는 기본 용량 (10)으로 설정 
         {
             currentCapacity = 10;
         } else
@@ -79,6 +79,11 @@ void SimpleVector<T>::sortData()
 template <typename T>
 void SimpleVector<T>::resize(int newCapacity)
 {
+    if (newCapacity <= currentCapacity) // 현재 용량보다 작으면 아무 일도 x 
+    {
+        return;
+    }
+
     T* copiedData = new T[newCapacity];
 
     for(int i = 0; i < currentSize; ++i)
