@@ -24,7 +24,7 @@ SimpleVector<T>::SimpleVector(const SimpleVector<T>& other)
 template <typename T>
 SimpleVector<T>::~SimpleVector()
 {
-    delete[] data
+    delete[] data;
 }
 
 // 현재 원소의 개수 반환환
@@ -65,7 +65,7 @@ void SimpleVector<T>::pop_back()
 {
     if (currentSize > 0)
     {
-        data[currentSize - 1] = nullptr;
+        //data[currentSize - 1] = nullptr;
         --currentSize;
     }
 }
