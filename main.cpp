@@ -15,12 +15,18 @@ int main()
     v2.push_back("crayon");
     v2.push_back("banana");
 
+    cout << "v1 size: " << v1.size() << endl;
+    cout << "v1 capacity: " << v1.capacity() << endl;
     cout << "v1: " << endl;
     v1.print();
     v1.sortData();
     cout << "v1 after sort: " << endl;
     v1.print();
 
+    cout << "\n\n";
+
+    cout << "v2 size: " << v2.size() << endl;
+    cout << "v2 capacity: " << v2.capacity() << endl;
     cout << "v2: " << endl;
     v2.print();
     v2.sortData();
